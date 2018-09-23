@@ -13,7 +13,7 @@ DESCRIPTION="paludis, the other package mangler"
 HOMEPAGE="http://paludis.exherbo.org/"
 SRC_URI=""
 
-IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml"
+IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml -eapi7"
 LICENSE="GPL-2 vim"
 SLOT="0"
 KEYWORDS=""
@@ -71,6 +71,17 @@ pkg_setup() {
 	enewuser "paludisbuild" -1 -1 "/var/tmp/paludis" "paludisbuild,tty"
 
 	use python && python-single-r1_pkg_setup
+}
+
+src_unpack() {
+        if use eapi7; then
+		# want experimental EAPI7 support?
+		EGIT_BRANCH="eapi7"
+        else
+		EGIT_BRANCH="master"
+        fi
+        git-r3_fetch
+        git-r3_checkout
 }
 
 src_prepare() {
