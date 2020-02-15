@@ -26,7 +26,7 @@ COMMON_DEPEND="
 	pbins? ( >=app-arch/libarchive-3.1.2:= )
 	python? (
 		${PYTHON_DEPS}
-		>=dev-libs/boost-1.41.0:=[python,${PYTHON_USEDEP}] )
+		>=dev-libs/boost-1.41.0:=[python,${PYTHON_SINGLE_USEDEP}] )
 	ruby? ( dev-lang/ruby:${RUBY_VER} )
 	search-index? ( >=dev-db/sqlite-3:= )
 	xml? ( >=dev-libs/libxml2-2.6:= )"
@@ -38,7 +38,7 @@ DEPEND="${COMMON_DEPEND}
 	>=sys-devel/gcc-4.7
 	doc? (
 		app-doc/doxygen
-		python? ( dev-python/sphinx[${PYTHON_USEDEP}] )
+		python? ( dev-python/sphinx[${PYTHON_SINGLE_USEDEP}] )
 		ruby? ( dev-ruby/syntax[ruby_targets_ruby${RUBY_VER/./}] )
 	)
 	virtual/pkgconfig
