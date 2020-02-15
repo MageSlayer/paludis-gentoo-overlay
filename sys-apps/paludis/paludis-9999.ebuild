@@ -7,7 +7,7 @@ EGIT_REPO_URI="https://github.com/MageSlayer/paludis-gentoo-patches.git"
 PYTHON_COMPAT=( python2_7 )
 RUBY_VER=2.4
 
-inherit bash-completion-r1 cmake-utils git-r3 python-single-r1 user
+inherit bash-completion-r1 cmake-utils git-r3 python-r1 user
 
 DESCRIPTION="paludis, the other package mangler"
 HOMEPAGE="http://paludis.exherbo.org/"
@@ -26,7 +26,8 @@ COMMON_DEPEND="
 	pbins? ( >=app-arch/libarchive-3.1.2:= )
 	python? (
 		${PYTHON_DEPS}
-		>=dev-libs/boost-1.41.0:=[python,${PYTHON_SINGLE_USEDEP}] )
+		dev-libs/boost[python,${PYTHON_USEDEP}]
+	)
 	ruby? ( dev-lang/ruby:${RUBY_VER} )
 	search-index? ( >=dev-db/sqlite-3:= )
 	xml? ( >=dev-libs/libxml2-2.6:= )"
@@ -38,7 +39,7 @@ DEPEND="${COMMON_DEPEND}
 	>=sys-devel/gcc-4.7
 	doc? (
 		app-doc/doxygen
-		python? ( dev-python/sphinx[${PYTHON_SINGLE_USEDEP}] )
+		python? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 		ruby? ( dev-ruby/syntax[ruby_targets_ruby${RUBY_VER/./}] )
 	)
 	virtual/pkgconfig
