@@ -4,7 +4,7 @@
 EAPI=6
 
 EGIT_REPO_URI="https://github.com/MageSlayer/paludis-gentoo-patches.git"
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{7,8,9} )
 RUBY_VER=2.4
 
 inherit bash-completion-r1 cmake-utils git-r3 python-r1 user
