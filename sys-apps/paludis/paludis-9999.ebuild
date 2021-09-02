@@ -71,7 +71,7 @@ pkg_setup() {
 	enewgroup "paludisbuild"
 	enewuser "paludisbuild" -1 -1 "/var/tmp/paludis" "paludisbuild,tty"
 
-	use python && python-single-r1_pkg_setup
+	use python && python_setup -3
 }
 
 src_unpack() {
